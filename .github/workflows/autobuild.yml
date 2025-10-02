@@ -72,7 +72,10 @@ jobs:
           args: --target ${{ matrix.target }}
 
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: windows-${{ matrix.arch }}
           path: src-tauri/target/${{ matrix.target }}/release/bundle/nsis/*-setup.exe
+          if-no-files-found: error   # 可选：文件不存在就报错
+          retention-days: 7          # 可选：Artifact 保留 7 天（默认 90 天）
+
