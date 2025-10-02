@@ -1,9 +1,10 @@
 name: Auto Build (Windows Only)
 
 on:
-  workflow_dispatch:   # 手动触发
-  push:                # 也可以在你 push 代码时触发
-    branches: [ debug ]
+  workflow_dispatch:    # 手动触发
+  push:                 # 也可以在你 push 代码时触发
+    branches:
+      - debug           # 注意这里要换行，不能写成 [ debug ]
 
 permissions: write-all
 env:
